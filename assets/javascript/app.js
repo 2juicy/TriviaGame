@@ -64,7 +64,7 @@ $(document).ready(function() {
             $('#1A').text('1. ' + q5.choice[0]);
             $('#2A').text('2. ' + q5.choice[1]);
             $('#3A').text('3. ' + q5.choice[2]);
-            $('#4A').text('4. ' + Wq5.choice[3]);
+            $('#4A').text('4. ' + q5.choice[3]);
         }
     }
     var answerCheck = function(x){
@@ -129,7 +129,7 @@ $(document).ready(function() {
           nextQuest(0);
         }, 3000);
     });
-        //onclick for answer and validation of correct answer.
+    //onclick for answer and validation of correct answer.
     $(".answer").click(function(){
         userPick = $(this).val();
         $('.answer').fadeOut();
@@ -152,4 +152,3 @@ $(document).ready(function() {
     
     });
 });
-
