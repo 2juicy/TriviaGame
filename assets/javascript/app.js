@@ -1,7 +1,7 @@
 const q1 = {
     question: 'What engine does Fortnite run on?',
     answer: 'Unreal 4 Engine',
-    choice: ['Frostbite', 'Unity', 'iD Tech 3 Engine', 'Unreal 4 Engine'],
+    choice: ['Frostbite', 'Unity 3D', 'iD Tech 3 Engine', 'Unreal 4 Engine'],
 };
 const q2 = {
     question: 'How many weapon tiers are there in Fortnite: Battle Royale?',
@@ -34,13 +34,24 @@ $(document).ready(function() {
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
         $('#yourQuestion').text(q1.question);
+        $('#1A').text(q1.choice[0]);
+        $('#2A').text(q1.choice[1]);
+        $('#3A').text(q1.choice[2]);
+        $('#4A').text(q1.choice[3]);
+    $(".answer").click(function(){
+        let userPick = $(this).val();
+        if (q1.choice[userPick] === q1.answer){
+            $("#combatText").text('You are correct!');
+        } else {
+            $("#combatText").text('You are incorrect! the correct answer is ' + q1.answer);
+        }
 
 
 // setTimeout(fiveSeconds, 1000 * 5);
 
 
 
-
+    });
     });
 });
 

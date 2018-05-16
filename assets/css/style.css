@@ -105,7 +105,7 @@ h2{
     opacity: 0.2;
     transform: translateY(3px);
     }
-#yourQuestion{
+#yourQuestion, #combatText{
     font-size: 24px;
     color: white;
     font-family: 'Oswald', sans-serif;
@@ -118,4 +118,5 @@ h2{
 }
 .center{
     text-align: center;
+    clear: both;
 }
