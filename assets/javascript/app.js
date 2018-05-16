@@ -28,40 +28,43 @@ var count = 0;
 var score = 0;
 var userGuess = 0;
 var end = false;
+var time;
 //Document check
 $(document).ready(function() {
     var nextQuest = function(x){
         let y = qList[x];
+        $('.answer').fadeIn();
+        $('#yourQuestion').fadeIn();
         if (y === q1){
             $('#yourQuestion').text(q1.question);
-            $('#1A').text(q1.choice[0]);
-            $('#2A').text(q1.choice[1]);
-            $('#3A').text(q1.choice[2]);
-            $('#4A').text(q1.choice[3]);
+            $('#1A').text('1. ' + q1.choice[0]);
+            $('#2A').text('2. ' + q1.choice[1]);
+            $('#3A').text('3. ' + q1.choice[2]);
+            $('#4A').text('4. ' + q1.choice[3]);
         } else if (y === q2){
             $('#yourQuestion').text(q2.question);
-            $('#1A').text(q2.choice[0]);
-            $('#2A').text(q2.choice[1]);
-            $('#3A').text(q2.choice[2]);
-            $('#4A').text(q2.choice[3]);
+            $('#1A').text('1. ' + q2.choice[0]);
+            $('#2A').text('2. ' + q2.choice[1]);
+            $('#3A').text('3. ' + q2.choice[2]);
+            $('#4A').text('4. ' + q2.choice[3]);
         } else if (y === q3){
             $('#yourQuestion').text(q3.question);
-            $('#1A').text(q3.choice[0]);
-            $('#2A').text(q3.choice[1]);
-            $('#3A').text(q3.choice[2]);
-            $('#4A').text(q3.choice[3]);
+            $('#1A').text("1. " + q3.choice[0]);
+            $('#2A').text('2. ' + q3.choice[1]);
+            $('#3A').text('3. ' + q3.choice[2]);
+            $('#4A').text('4. ' + q3.choice[3]);
         } else if (y === q4){
             $('#yourQuestion').text(q4.question);
-            $('#1A').text(q4.choice[0]);
-            $('#2A').text(q4.choice[1]);
-            $('#3A').text(q4.choice[2]);
-            $('#4A').text(q4.choice[3]);
+            $('#1A').text('1. ' + q4.choice[0]);
+            $('#2A').text('2. ' + q4.choice[1]);
+            $('#3A').text('3. ' + q4.choice[2]);
+            $('#4A').text('4. ' + q4.choice[3]);
         } else {
             $('#yourQuestion').text(q5.question);
-            $('#1A').text(q5.choice[0]);
-            $('#2A').text(q5.choice[1]);
-            $('#3A').text(q5.choice[2]);
-            $('#4A').text(q5.choice[3]);
+            $('#1A').text('1. ' + q5.choice[0]);
+            $('#2A').text('2. ' + q5.choice[1]);
+            $('#3A').text('3. ' + q5.choice[2]);
+            $('#4A').text('4. ' + Wq5.choice[3]);
         }
     }
     var answerCheck = function(x){
@@ -122,21 +125,27 @@ $(document).ready(function() {
         $('#start').hide();
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
-        nextQuest(0);
+        time = setTimeout(function() {
+          nextQuest(0);
+        }, 3000);
     });
         //onclick for answer and validation of correct answer.
     $(".answer").click(function(){
         userPick = $(this).val();
+        $('.answer').fadeOut();
+        $('#yourQuestion').fadeOut();
         answerCheck(userPick);
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
         } else {
-        nextQuest(count);
+        time = setTimeout(function() {
+          nextQuest(count);
+        }, 3000);
         }
 
 
-// setTimeout(functionHere, 1000 * 5);
+
 
 
 
