@@ -31,14 +31,18 @@ $(document).ready(function() {
     $('#yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
+        //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
+        //Questions appearing on screen need for loop.
         $('#yourQuestion').text(q1.question);
         $('#1A').text(q1.choice[0]);
         $('#2A').text(q1.choice[1]);
         $('#3A').text(q1.choice[2]);
         $('#4A').text(q1.choice[3]);
+    });
+        //onclick for answer and validation of correct answer.
     $(".answer").click(function(){
         let userPick = $(this).val();
         if (q1.choice[userPick] === q1.answer){
@@ -52,7 +56,7 @@ $(document).ready(function() {
 
 
 
-    });
+    
     });
 });
 
