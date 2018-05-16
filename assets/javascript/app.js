@@ -33,8 +33,8 @@ var time;
 $(document).ready(function() {
     var nextQuest = function(x){
         let y = qList[x];
-        $('.answer').fadeIn();
-        $('#yourQuestion').fadeIn();
+        $('.answer').fadeIn(1000);
+        $('#yourQuestion').fadeIn(1000);
         if (y === q1){
             $('#yourQuestion').text(q1.question);
             $('#1A').text('1. ' + q1.choice[0]);
@@ -125,8 +125,6 @@ $(document).ready(function() {
         $('#start').hide();
         time = setTimeout(function() {
           nextQuest(0);
-          $('.answer').fadeIn(1000);
-          $('#yourQuestion').fadeIn(1000);
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
