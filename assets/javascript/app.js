@@ -23,6 +23,7 @@ const q5 = {
     answer: '4',
     choice: ['6', '5', '4', '3'],
 };
+const qList = [q1, q2, q3, q4 ,q5];
 var score = 0;
 //Document check
 $(document).ready(function() {
