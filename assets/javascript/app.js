@@ -65,56 +65,54 @@ $(document).ready(function() {
         }
     }
     var answerCheck = function(x){
-        if (q1.choice[x] === q1.answer){
+        if (count === 0 && q1.choice[x] === q1.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Your score: ' + score);
             count++;            
-        } else if (count === 0 && q1.choice[x] !== q1.answer){
+        } else if (count === 0 && q1.choice[x] != q1.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q1.answer);
             $('#score').text('Your score: ' + score);
             count++;            
-        } else if (q2.choice[x] === q2.answer){
+        } else if (count === 1 && q2.choice[x] === q2.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Your score: ' + score);
             count++;            
-        } else if (count === 1 && q2.choice[x] !== q2.answer){
+        } else if (count === 1 && q2.choice[x] != q2.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q2.answer);
             $('#score').text('Your score: ' + score);
             count++;            
-        } else if (q3.choice[x] === q3.answer){
+        } else if (count === 2 && q3.choice[x] === q3.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Your score: ' + score);
-            count++;            
-        } else if (count === 2 && q3.choice[x] !== q3.answer){
+            count++;              
+        } else if (count === 2 && q3.choice[x] != q3.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q3.answer);
             $('#score').text('Your score: ' + score);
-            count++;            
-        } else if (q4.choice[x] === q4.answer){
+            count++;              
+        } else if (count === 3 && q4.choice[x] === q4.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Your score: ' + score);
-            count++;            
-        } else if (count === 3 && q4.choice[x] !== q4.answer) {
+            count++;              
+        } else if (count === 3 && q4.choice[x] != q4.answer) {
             $("#combatText").text('You are incorrect! the correct answer is ' + q4.answer);
             $('#score').text('Your score: ' + score);
-            count++;            
-        } else if (q5.choice[x] === q5.answer){
+            count++;              
+        } else if (count === 4 && q5.choice[x] === q5.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Your score: ' + score);
             count++;            
-            end = true;
-        } else if (count === 4 && q5.choice[x] !== q5.answer){
+            end = true;  
+        } else if (count === 4 && q5.choice[x] != q5.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q5.answer);
             $('#score').text('Your score: ' + score);
             count++;            
-            end = true;    
-        } else {
-            return;
-        }
+            end = true;      
+        } 
     }
     $('.answer').hide();
     $('#yourQuestion').hide();
@@ -130,10 +128,11 @@ $(document).ready(function() {
     $(".answer").click(function(){
         userPick = $(this).val();
         answerCheck(userPick);
-        nextQuest(count);
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
+        } else {
+        nextQuest(count);
         }
 
 
