@@ -123,10 +123,10 @@ $(document).ready(function() {
     $("#start").click(function(){
         //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
-        $('.answer').fadeIn(1000);
-        $('#yourQuestion').fadeIn(1000);
         time = setTimeout(function() {
           nextQuest(0);
+          $('.answer').fadeIn(1000);
+          $('#yourQuestion').fadeIn(1000);
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
