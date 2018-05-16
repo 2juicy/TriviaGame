@@ -37,7 +37,7 @@ hr{
     padding: 0;
     }
 h1{
-    color: white;
+    color: azure;
     font-family: 'Oswald', sans-serif;
     font-style: italic;
     text-shadow: -1px -1px 1px #aaa,
@@ -105,7 +105,7 @@ h2{
     opacity: 0.2;
     transform: translateY(3px);
     }
-#yourQuestion, #combatText{
+#yourQuestion, #combatText, #score{
     font-size: 24px;
     color: white;
     font-family: 'Oswald', sans-serif;
@@ -115,6 +115,11 @@ h2{
              4px 4px 5px rgba(0,0,0,0.7),
              0px 0px 7px rgba(0,0,0,0.4);
     text-align: center;
+}
+#score{
+    font-size: 26px;
+    font-style: bold;
+    color: azure;
 }
 .center{
     text-align: center;
