@@ -24,6 +24,7 @@ const q5 = {
     choice: ['6', '5', '4', '3'],
 };
 const qList = [q1, q2, q3, q4 ,q5];
+var answerD = '';
 var count = 0;
 var score = 0;
 var userGuess = 0;
@@ -61,7 +62,7 @@ $(document).ready(function() {
                 seconds--;
             } else if (seconds == 0) {
                 clearInterval(intervalId);
-                $("#combatText").text('You ran out of time!');
+                $("#combatText").text('You ran out of time! ' + 'The correct answer is ' + answerD);
                 count++;
                 $('.answer').fadeOut();
                 $('#yourQuestion').fadeOut();
@@ -94,30 +95,35 @@ $(document).ready(function() {
             $('#2A').text(q1.choice[1]);
             $('#3A').text(q1.choice[2]);
             $('#4A').text(q1.choice[3]);
+            answerD = q1.answer;
         } else if (y === q2){
             $('#yourQuestion').text(q2.question);
             $('#1A').text(q2.choice[0]);
             $('#2A').text(q2.choice[1]);
             $('#3A').text(q2.choice[2]);
             $('#4A').text(q2.choice[3]);
+            answerD = q2.answer;
         } else if (y === q3){
             $('#yourQuestion').text(q3.question);
             $('#1A').text(q3.choice[0]);
             $('#2A').text(q3.choice[1]);
             $('#3A').text(q3.choice[2]);
             $('#4A').text(q3.choice[3]);
+            answerD = q3.answer;
         } else if (y === q4){
             $('#yourQuestion').text(q4.question);
             $('#1A').text(q4.choice[0]);
             $('#2A').text(q4.choice[1]);
             $('#3A').text(q4.choice[2]);
             $('#4A').text(q4.choice[3]);
+            answerD = q4.answer;
         } else {
             $('#yourQuestion').text(q5.question);
             $('#1A').text(q5.choice[0]);
             $('#2A').text(q5.choice[1]);
             $('#3A').text(q5.choice[2]);
             $('#4A').text(q5.choice[3]);
+            answerD = q5.answer;
         }
     }
     //function to check if answer is correct and posts if user is correct or not.
