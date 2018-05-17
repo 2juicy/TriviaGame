@@ -80,6 +80,7 @@ $(document).ready(function() {
     }
     //function for posting up questions
     var nextQuest = function(x){
+        clearInterval(intervalId);
         $('#timer').show();
         counter();
         let y = qList[x];
