@@ -38,7 +38,6 @@ $(document).ready(function() {
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
-            $('#start').slideDown();
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
             score = 0;
             clearInterval(intervalId);
@@ -47,7 +46,8 @@ $(document).ready(function() {
             end = false;
         } else {
             delay = setTimeout(function() {
-                nextQuest(count);                  
+                nextQuest(count);
+                $('#start').slideDown();                  
             }, 3000);
         } 
     }
