@@ -68,20 +68,18 @@ $(document).ready(function() {
                 clearInterval(intervalId);
                 if (count === 5){
                     end = true;
+                } else {
+                    delay = setTimeout(function() {
+                        nextQuest(count);                  
+                    }, 3000);
                 }
-                didIWin();
-                delay = setTimeout(function() {
-                    nextQuest(count);                  
-                }, 3000);
+                didIWin();                
             }
             $('#timer').text(seconds);
         }       
     }
     //function for posting up questions
     var nextQuest = function(x){
-        if (end === true){
-            return;
-        }
         $('#timer').show();
         counter();
         let y = qList[x];
