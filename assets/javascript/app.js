@@ -33,6 +33,23 @@ var seconds = 30;
 //Document check
 $(document).ready(function() {
     var intervalId;
+    //win condition
+    function didIWin(){
+        if (end === true){
+            $('.answer').hide();
+            $('#yourQuestion').hide();
+            $('#start').slideDown();
+            $('#score').text('Game Over! Total Guesses Correct: ' + score);
+            score = 0;
+            seconds = 30;
+            count = 0;
+            end = false;
+        } else {
+            delay = setTimeout(function() {
+                nextQuest(count);                  
+            }, 3000);
+        } 
+    }
     //timer counter
     var counter = function() {
         intervalId = setInterval(z, 1000);
@@ -41,6 +58,21 @@ $(document).ready(function() {
                 seconds--;
             } else if (seconds == 0) {
                 clearInterval(intervalId);
+                $("#combatText").text('You ran out of time!');
+                count++;
+                $('.answer').fadeOut();
+                $('#yourQuestion').fadeOut();
+                seconds = 30;
+                $('#timer').text('30');
+                $('#timer').hide();
+                clearInterval(intervalId);
+                if (count === 5){
+                    end = true;
+                }
+                didIWin();
+                delay = setTimeout(function() {
+                    nextQuest(count);                  
+                }, 3000);
             }
             $('#timer').text(seconds);
         }       
@@ -132,7 +164,8 @@ $(document).ready(function() {
             $("#combatText").text('You are incorrect! The correct answer is ' + q5.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             count++;            
-            end = true;      
+            end = true; 
+            console.log(count);     
         } 
     }
     $('#timer').hide();
@@ -144,7 +177,7 @@ $(document).ready(function() {
         $('#score').text('');
         $('#start').hide();
         delay = setTimeout(function() {
-        nextQuest(0);                    
+            nextQuest(0);                    
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
@@ -157,19 +190,6 @@ $(document).ready(function() {
         $('#timer').hide();
         clearInterval(intervalId);
         answerCheck(userPick);
-        if (end === true){
-            $('.answer').hide();
-            $('#yourQuestion').hide();
-            $('#start').slideDown();
-            $('#score').text('Game Over! Total Guesses Correct: ' + score);
-            score = 0;
-            seconds = 30;
-            count = 0;
-            end = false;
-        } else {
-            delay = setTimeout(function() {
-            nextQuest(count);                  
-            }, 3000);
-        }    
+        didIWin();   
     });
 });
