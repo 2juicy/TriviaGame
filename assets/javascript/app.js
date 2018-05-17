@@ -44,10 +44,12 @@ $(document).ready(function() {
             seconds = 30;
             count = 0;
             end = false;
+            delay = setTimeout(function() {
+                $('#start').slideDown();                  
+            }, 3000);
         } else {
             delay = setTimeout(function() {
-                nextQuest(count);
-                $('#start').slideDown();                  
+                nextQuest(count);                  
             }, 3000);
         } 
     }
