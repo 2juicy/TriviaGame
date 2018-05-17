@@ -132,6 +132,15 @@ h2{
     font-size: 26px;
     font-style: bold;
     color: azure;
+    
+}
+#timer{
+    font-family: monospace;
+    font-size: 100px;
+    color: green;
+    text-align: center;
+    position: fixed;
+    bottom: 0%;
 }
 .center{
     text-align: center;

@@ -28,11 +28,21 @@ var count = 0;
 var score = 0;
 var userGuess = 0;
 var end = false;
-var time;
+var delay;
+var intervalId;
 //Document check
 $(document).ready(function() {
+    //function for timer between rounds.
+    function secondsCounter(seconds) {
+        intervalId = setInterval(count, 1000);
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        $('#timer').text(seconds);
+        }
+    }
     //function for posting up questions
     var nextQuest = function(x){
+        secondsCounter(10);
         let y = qList[x];
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
@@ -123,10 +133,12 @@ $(document).ready(function() {
     $('#yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
+        secondsCounter(3)
         //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
-        time = setTimeout(function() {
+        delay = setTimeout(function() {
           nextQuest(0);
+          secondsCounter(10)
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
@@ -139,8 +151,9 @@ $(document).ready(function() {
             $('.answer').hide();
             $('#yourQuestion').hide();
         } else {
-        time = setTimeout(function() {
+        delay = setTimeout(function() {
           nextQuest(count);
+          secondsCounter(10);
         }, 3000);
         }
 
