@@ -32,27 +32,25 @@ var delay;
 //Document check
 $(document).ready(function() {
     var intervalId;
-    var seconds = 0;
-    //start timer
-    function start() {
-        intervalId = setInterval(counter, 1000);
-    }
+    var seconds = 30;
     //timer count
-    function counter() {
-        seconds--;
-        $("#timer").text(seconds);
-        if (seconds == 0){
-            clearInterval(intervalId);
-            $('#timer').text('00')
-        } else if (seconds < 10) {
-            $('#timer').text('0' + seconds);        
-        }        
+    var counter = function() {
+        intervalId = setInterval(secondsLeft, 1000);
+        var secondsLeft = function(){
+            if (seconds > 0){
+                seconds--;
+            } else if (seconds == 0) {
+                clearInterval(intervalId);
+            }
+        }       
     }
     //not a working timer between rounds.
     //function for posting up questions
     var nextQuest = function(x){
+        $('#timer').show();
+        seconds = 30;
+        counter();
         let y = qList[x];
-        seconds = 10;
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
         if (y === q1){
@@ -92,65 +90,60 @@ $(document).ready(function() {
         if (count === 0 && q1.choice[x] === q1.answer){
             $("#combatText").text('You are correct!');
             score++;
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 0 && q1.choice[x] != q1.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q1.answer);
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 1 && q2.choice[x] === q2.answer){
             $("#combatText").text('You are correct!');
             score++;
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 1 && q2.choice[x] != q2.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q2.answer);
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 2 && q3.choice[x] === q3.answer){
             $("#combatText").text('You are correct!');
             score++;
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 2 && q3.choice[x] != q3.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q3.answer);
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 3 && q4.choice[x] === q4.answer){
             $("#combatText").text('You are correct!');
             score++;
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 3 && q4.choice[x] != q4.answer) {
             $("#combatText").text('You are incorrect! the correct answer is ' + q4.answer);
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 4 && q5.choice[x] === q5.answer){
             $("#combatText").text('You are correct!');
             score++;
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
             end = true;  
         } else if (count === 4 && q5.choice[x] != q5.answer){
             $("#combatText").text('You are incorrect! the correct answer is ' + q5.answer);
-            $('#score').text('Your score: ' + score);
+            $('#score').text('Guesses Correct: ' + score);
             count++;            
             end = true;      
         } 
     }
+    $('#timer').hide();
     $('.answer').hide();
     $('#yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
-        seconds = 4;
-        start();
-        counter();
-        //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
         delay = setTimeout(function() {
-          nextQuest(0);
-          clearInterval(intervalId);
-          start();          
+        nextQuest(0);                    
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
@@ -158,18 +151,16 @@ $(document).ready(function() {
         userPick = $(this).val();
         $('.answer').fadeOut();
         $('#yourQuestion').fadeOut();
+        $('#timer').hide();
         clearInterval(intervalId);
-        start();
-        seconds = 3;
         answerCheck(userPick);
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
+            $('#score').text('Game Over! Total Guesses Correct: ' + score);
         } else {
             delay = setTimeout(function() {
-            nextQuest(count);
-            clearInterval();
-            start();       
+            nextQuest(count);                  
             }, 3000);
         }
 
