@@ -30,19 +30,22 @@ var userGuess = 0;
 var end = false;
 var delay;
 var intervalId;
+var seconds = 0;
 //Document check
 $(document).ready(function() {
-    //function for timer between rounds.
-    function secondsCounter(seconds) {
-        intervalId = setInterval(count, 1000);
+    //not a working timer between rounds.
+    var secondsCounter = setInterval(function() {
+        seconds--;
         if (seconds < 10) {
             seconds = "0" + seconds;
-        $('#timer').text(seconds);
-        }
-    }
+            $('#timer').text(seconds);        
+        };
+        if (seconds <= 0){
+            clearInterval(secondsCounter);
+        };
+    }, 1000);
     //function for posting up questions
     var nextQuest = function(x){
-        secondsCounter(10);
         let y = qList[x];
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
@@ -133,12 +136,12 @@ $(document).ready(function() {
     $('#yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
-        secondsCounter(3)
+        seconds = 4;
         //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
         delay = setTimeout(function() {
           nextQuest(0);
-          secondsCounter(10)
+          seconds = 11;
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
@@ -153,7 +156,7 @@ $(document).ready(function() {
         } else {
         delay = setTimeout(function() {
           nextQuest(count);
-          secondsCounter(10);
+          seconds = 11;
         }, 3000);
         }
 
