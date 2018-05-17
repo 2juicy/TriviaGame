@@ -53,7 +53,7 @@ h2{
     font-weight: bold;
 }
 .answer{
-    color: bisque;
+    color: whitesmoke;
     font-family: 'Oswald', sans-serif;
     height: 50px;
     border: 0;
@@ -63,7 +63,7 @@ h2{
     margin: 5px 5px 5px 5px;
     padding: 3px 5px 3px 5px;
     box-shadow: 0px 3px 8px #43484c;
-    font-size: 24px;
+    font-size: 34px;
     border-radius: 10px 10px 10px 10px;
     transition: background linear 0.33s;
     text-shadow: -1px -1px 1px #aaa,
@@ -72,10 +72,21 @@ h2{
              0px 0px 7px rgba(0,0,0,0.4);
     position: relative;
 }
+.as{
+    color: yellow;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    text-shadow: -1px -1px 1px #aaa,
+             0px 4px 1px rgba(0,0,0,0.5),
+             4px 4px 5px rgba(0,0,0,0.7),
+             0px 0px 7px rgba(0,0,0,0.4);
+}
 #start{
     height: auto;
     width: 200px;
-    color: bisque;
+    color: whitesmoke;
+    text-decoration: none;
+    opacity: 0.77;
     font-family: 'Oswald', sans-serif;
     font-style: oblique;
     font-size: 72px;
@@ -84,7 +95,7 @@ h2{
              4px 4px 5px rgba(0,0,0,0.7),
              0px 0px 7px rgba(0,0,0,0.4);
     border: 0;
-    background:transparent no-repeat;
+    background:black;
     margin: 20px 15px 15px 15px;
     box-shadow: 0px 3px 8px #43484c;
     border-radius: 15px 15px 15px 15px;
