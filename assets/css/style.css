@@ -117,7 +117,7 @@ h2{
     opacity: 0.2;
     transform: translateY(3px);
     }
-#yourQuestion, #combatText, #score{
+#yourQuestion, #combatText, #score, #wrong{
     font-size: 24px;
     color: white;
     font-family: 'Oswald', sans-serif;
@@ -128,7 +128,7 @@ h2{
              0px 0px 7px rgba(0,0,0,0.4);
     text-align: center;
 }
-#score{
+#score, #wrong{
     font-size: 26px;
     font-style: bold;
     color: rgb(188, 176, 252);

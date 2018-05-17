@@ -27,6 +27,7 @@ const qList = [q1, q2, q3, q4 ,q5];
 var answerD = '';
 var count = 0;
 var score = 0;
+var wrong = 0;
 var userGuess = 0;
 var end = false;
 var delay;
@@ -41,6 +42,7 @@ $(document).ready(function() {
             $('#yourQuestion').hide();
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
             score = 0;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             clearInterval(intervalId);
             seconds = 30;
             count = 0;
@@ -64,6 +66,8 @@ $(document).ready(function() {
                 clearInterval(intervalId);
                 $("#combatText").text('You ran out of time! ' + 'The correct answer is ' + answerD);
                 count++;
+                wrong++;
+                $('#wrong').text('Guesses Incorrect: ' + wrong);
                 $('.answer').fadeOut();
                 $('#yourQuestion').fadeOut();
                 seconds = 30;
@@ -132,47 +136,62 @@ $(document).ready(function() {
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
         } else if (count === 0 && q1.choice[x] != q1.answer){
             $("#combatText").text('You are incorrect! The correct answer is ' + q1.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
+            wrong++;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
         } else if (count === 1 && q2.choice[x] === q2.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
         } else if (count === 1 && q2.choice[x] != q2.answer){
             $("#combatText").text('You are incorrect! The correct answer is ' + q2.answer) + '!';
             $('#score').text('Guesses Correct: ' + score);
+            wrong++;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
         } else if (count === 2 && q3.choice[x] === q3.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;              
         } else if (count === 2 && q3.choice[x] != q3.answer){
             $("#combatText").text('You are incorrect! The correct answer is ' + q3.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
+            wrong++;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;              
         } else if (count === 3 && q4.choice[x] === q4.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;              
         } else if (count === 3 && q4.choice[x] != q4.answer) {
             $("#combatText").text('You are incorrect! The correct answer is ' + q4.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
+            wrong++;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;              
         } else if (count === 4 && q5.choice[x] === q5.answer){
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
             end = true;  
         } else if (count === 4 && q5.choice[x] != q5.answer){
             $("#combatText").text('You are incorrect! The correct answer is ' + q5.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
+            wrong++;
+            $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
             end = true; 
             console.log(count);     
