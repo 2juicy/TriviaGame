@@ -6,7 +6,7 @@ const q1 = {
 const q2 = {
     question: 'How many weapon tiers are there in Fortnite: Battle Royale?',
     answer: '5',
-    choice: ['3','5','6','7'],
+    choice: ['3','5','6','4'],
 };
 const q3 = {
     question: 'How many shield points does a Mini-Shield Potion give you?',
