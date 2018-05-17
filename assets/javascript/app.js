@@ -43,6 +43,7 @@ $(document).ready(function() {
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
             score = 0;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
+            wrong = 0;
             clearInterval(intervalId);
             seconds = 30;
             count = 0;
@@ -204,6 +205,7 @@ $(document).ready(function() {
     $("#start").click(function(){
         $("#combatText").text('');
         $('#score').text('');
+        $('#wrong').text('');
         $('#start').hide();
         delay = setTimeout(function() {
             nextQuest(0);                    
