@@ -194,8 +194,7 @@ $(document).ready(function() {
             wrong++;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;            
-            end = true; 
-            console.log(count);     
+            end = true;     
         } 
     }
     $('#timer').hide();
