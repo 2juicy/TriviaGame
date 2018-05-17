@@ -41,6 +41,7 @@ $(document).ready(function() {
             $('#start').slideDown();
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
             score = 0;
+            clearInterval(intervalId);
             seconds = 30;
             count = 0;
             end = false;
@@ -65,7 +66,6 @@ $(document).ready(function() {
                 seconds = 30;
                 $('#timer').text('30');
                 $('#timer').hide();
-                clearInterval(intervalId);
                 if (count === 5){
                     end = true;
                 } else {
