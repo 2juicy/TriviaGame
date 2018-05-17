@@ -131,17 +131,20 @@ h2{
 #score{
     font-size: 26px;
     font-style: bold;
-    color: azure;
+    color: rgb(188, 176, 252);
     
 }
 #timer{
     font-family: monospace;
     font-size: 100px;
-    color: green;
-    text-align: center;
+    color: rgba(5, 110, 5, 0.863);
     position: fixed;
     bottom: 0%;
-    right: 0%;
+    right: 50%;
+    text-shadow: -1px -1px 1px #aaa,
+             0px 4px 1px rgba(0,0,0,0.5),
+             4px 4px 5px rgba(0,0,0,0.7),
+             0px 0px 7px rgba(0,0,0,0.4);
 }
 .center{
     text-align: center;

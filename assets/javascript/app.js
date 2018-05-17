@@ -29,10 +29,10 @@ var score = 0;
 var userGuess = 0;
 var end = false;
 var delay;
+var seconds = 30;
 //Document check
 $(document).ready(function() {
     var intervalId;
-    var seconds = 30;
     //timer counter
     var counter = function() {
         intervalId = setInterval(z, 1000);
@@ -92,7 +92,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 0 && q1.choice[x] != q1.answer){
-            $("#combatText").text('You are incorrect! the correct answer is ' + q1.answer);
+            $("#combatText").text('You are incorrect! The correct answer is ' + q1.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 1 && q2.choice[x] === q2.answer){
@@ -101,7 +101,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 1 && q2.choice[x] != q2.answer){
-            $("#combatText").text('You are incorrect! the correct answer is ' + q2.answer);
+            $("#combatText").text('You are incorrect! The correct answer is ' + q2.answer) + '!';
             $('#score').text('Guesses Correct: ' + score);
             count++;            
         } else if (count === 2 && q3.choice[x] === q3.answer){
@@ -110,7 +110,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 2 && q3.choice[x] != q3.answer){
-            $("#combatText").text('You are incorrect! the correct answer is ' + q3.answer);
+            $("#combatText").text('You are incorrect! The correct answer is ' + q3.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 3 && q4.choice[x] === q4.answer){
@@ -119,7 +119,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 3 && q4.choice[x] != q4.answer) {
-            $("#combatText").text('You are incorrect! the correct answer is ' + q4.answer);
+            $("#combatText").text('You are incorrect! The correct answer is ' + q4.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             count++;              
         } else if (count === 4 && q5.choice[x] === q5.answer){
@@ -129,7 +129,7 @@ $(document).ready(function() {
             count++;            
             end = true;  
         } else if (count === 4 && q5.choice[x] != q5.answer){
-            $("#combatText").text('You are incorrect! the correct answer is ' + q5.answer);
+            $("#combatText").text('You are incorrect! The correct answer is ' + q5.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             count++;            
             end = true;      
@@ -140,6 +140,8 @@ $(document).ready(function() {
     $('#yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
+        $("#combatText").text('');
+        $('#score').text('');
         $('#start').hide();
         delay = setTimeout(function() {
         nextQuest(0);                    
@@ -158,18 +160,16 @@ $(document).ready(function() {
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
+            $('#start').slideDown();
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
+            score = 0;
+            seconds = 30;
+            count = 0;
+            end = false;
         } else {
             delay = setTimeout(function() {
             nextQuest(count);                  
             }, 3000);
-        }
-
-
-
-
-
-
-    
+        }    
     });
 });
