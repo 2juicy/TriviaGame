@@ -44,7 +44,6 @@ $(document).ready(function() {
             }
         }       
     }
-    //not a working timer between rounds.
     //function for posting up questions
     var nextQuest = function(x){
         $('#timer').show();
