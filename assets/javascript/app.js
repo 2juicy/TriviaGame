@@ -33,21 +33,21 @@ var delay;
 $(document).ready(function() {
     var intervalId;
     var seconds = 30;
-    //timer count
+    //timer counter
     var counter = function() {
-        intervalId = setInterval(secondsLeft, 1000);
-        var secondsLeft = function(){
+        intervalId = setInterval(z, 1000);
+        function z(){
             if (seconds > 0){
                 seconds--;
             } else if (seconds == 0) {
                 clearInterval(intervalId);
             }
+            $('#timer').text(seconds);
         }       
     }
     //function for posting up questions
     var nextQuest = function(x){
         $('#timer').show();
-        seconds = 30;
         counter();
         let y = qList[x];
         $('.answer').fadeIn(1000);
@@ -150,6 +150,8 @@ $(document).ready(function() {
         userPick = $(this).val();
         $('.answer').fadeOut();
         $('#yourQuestion').fadeOut();
+        seconds = 30;
+        $('#timer').text('30');
         $('#timer').hide();
         clearInterval(intervalId);
         answerCheck(userPick);
