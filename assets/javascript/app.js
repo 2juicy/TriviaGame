@@ -69,7 +69,7 @@ $(document).ready(function() {
                 count++;
                 wrong++;
                 $('#wrong').text('Guesses Incorrect: ' + wrong);
-                $('.answer').fadeOut();
+                $('.answer').hide();
                 $('#yourQuestion').fadeOut();
                 seconds = 30;
                 $('#timer').text('30');
@@ -214,7 +214,7 @@ $(document).ready(function() {
     //onclick for answer and validation of correct answer.
     $(".answer").click(function(){
         userPick = $(this).val();
-        $('.answer').fadeOut();
+        $('.answer').hide();
         $('#yourQuestion').fadeOut();
         seconds = 30;
         $('#timer').text('30');
