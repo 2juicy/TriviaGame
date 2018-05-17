@@ -29,24 +29,30 @@ var score = 0;
 var userGuess = 0;
 var end = false;
 var delay;
-var intervalId;
-var seconds = 0;
 //Document check
 $(document).ready(function() {
-    //not a working timer between rounds.
-    var secondsCounter = setInterval(function() {
+    var intervalId;
+    var seconds = 0;
+    //start timer
+    function start() {
+        intervalId = setInterval(counter, 1000);
+    }
+    //timer count
+    function counter() {
         seconds--;
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-            $('#timer').text(seconds);        
-        };
-        if (seconds <= 0){
-            clearInterval(secondsCounter);
-        };
-    }, 1000);
+        $("#timer").text(seconds);
+        if (seconds == 0){
+            clearInterval(intervalId);
+            $('#timer').text('00')
+        } else if (seconds < 10) {
+            $('#timer').text('0' + seconds);        
+        }        
+    }
+    //not a working timer between rounds.
     //function for posting up questions
     var nextQuest = function(x){
         let y = qList[x];
+        seconds = 10;
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
         if (y === q1){
@@ -137,11 +143,14 @@ $(document).ready(function() {
     //click event to start game
     $("#start").click(function(){
         seconds = 4;
+        start();
+        counter();
         //shows game screen need to add timer here for 3 sec.
         $('#start').hide();
         delay = setTimeout(function() {
           nextQuest(0);
-          seconds = 11;
+          clearInterval(intervalId);
+          start();          
         }, 3000);
     });
     //onclick for answer and validation of correct answer.
@@ -149,15 +158,19 @@ $(document).ready(function() {
         userPick = $(this).val();
         $('.answer').fadeOut();
         $('#yourQuestion').fadeOut();
+        clearInterval(intervalId);
+        start();
+        seconds = 3;
         answerCheck(userPick);
         if (end === true){
             $('.answer').hide();
             $('#yourQuestion').hide();
         } else {
-        delay = setTimeout(function() {
-          nextQuest(count);
-          seconds = 11;
-        }, 3000);
+            delay = setTimeout(function() {
+            nextQuest(count);
+            clearInterval();
+            start();       
+            }, 3000);
         }
 
 
