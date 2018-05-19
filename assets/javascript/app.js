@@ -23,7 +23,12 @@ const q5 = {
     answer: '4',
     choice: ['6', '5', '4', '3'],
 };
-const qList = [q1, q2, q3, q4 ,q5];
+const q6 = {
+    question: 'Who is the developer behind Fortnite?',
+    answer: 'Epic Games',
+    choice: ['Bluehole', 'Daybreak', 'Naughty Dog', 'Epic Games'],
+}
+const qList = [q1, q2, q3, q4 ,q5, q6];
 var answerD = '';
 var count = 0;
 var score = 0;
@@ -74,7 +79,7 @@ $(document).ready(function() {
                 seconds = 30;
                 $('#timer').text('30');
                 $('#timer').hide();
-                if (count === 5){
+                if (count === 6){
                     end = true;
                 } else {
                     delay = setTimeout(function() {
@@ -94,108 +99,34 @@ $(document).ready(function() {
         let y = qList[x];
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
-        if (y === q1){
-            $('#yourQuestion').text(q1.question);
-            $('#1A').text(q1.choice[0]);
-            $('#2A').text(q1.choice[1]);
-            $('#3A').text(q1.choice[2]);
-            $('#4A').text(q1.choice[3]);
-            answerD = q1.answer;
-        } else if (y === q2){
-            $('#yourQuestion').text(q2.question);
-            $('#1A').text(q2.choice[0]);
-            $('#2A').text(q2.choice[1]);
-            $('#3A').text(q2.choice[2]);
-            $('#4A').text(q2.choice[3]);
-            answerD = q2.answer;
-        } else if (y === q3){
-            $('#yourQuestion').text(q3.question);
-            $('#1A').text(q3.choice[0]);
-            $('#2A').text(q3.choice[1]);
-            $('#3A').text(q3.choice[2]);
-            $('#4A').text(q3.choice[3]);
-            answerD = q3.answer;
-        } else if (y === q4){
-            $('#yourQuestion').text(q4.question);
-            $('#1A').text(q4.choice[0]);
-            $('#2A').text(q4.choice[1]);
-            $('#3A').text(q4.choice[2]);
-            $('#4A').text(q4.choice[3]);
-            answerD = q4.answer;
-        } else {
-            $('#yourQuestion').text(q5.question);
-            $('#1A').text(q5.choice[0]);
-            $('#2A').text(q5.choice[1]);
-            $('#3A').text(q5.choice[2]);
-            $('#4A').text(q5.choice[3]);
-            answerD = q5.answer;
-        }
+        $('#1A').text(y.choice[0]);
+        $('#2A').text(y.choice[1]);
+        $('#3A').text(y.choice[2]);
+        $('#4A').text(y.choice[3]);
+        $('#5A').text(y.choice[4]);
+        answerD = y.answer;
     }
-    //function to check if answer is correct and posts if user is correct or not.
-    var answerCheck = function(x){
-        if (count === 0 && q1.choice[x] === q1.answer){
+    //function to check if answer is correct and posts if user is correct or not. Uses count# to check question number.
+    var answerCheck = function(x, qNum){
+        if(qList[qNum].answer === qList[qNum].choice[x]) {
             $("#combatText").text('You are correct!');
             score++;
             $('#score').text('Guesses Correct: ' + score);
             $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-        } else if (count === 0 && q1.choice[x] != q1.answer){
+            count++;  
+            if (count === 6){
+                end = true;
+            }    
+        } else {
             $("#combatText").text('You are incorrect! The correct answer is ' + q1.answer + '!');
             $('#score').text('Guesses Correct: ' + score);
             wrong++;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-        } else if (count === 1 && q2.choice[x] === q2.answer){
-            $("#combatText").text('You are correct!');
-            score++;
-            $('#score').text('Guesses Correct: ' + score);
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-        } else if (count === 1 && q2.choice[x] != q2.answer){
-            $("#combatText").text('You are incorrect! The correct answer is ' + q2.answer) + '!';
-            $('#score').text('Guesses Correct: ' + score);
-            wrong++;
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-        } else if (count === 2 && q3.choice[x] === q3.answer){
-            $("#combatText").text('You are correct!');
-            score++;
-            $('#score').text('Guesses Correct: ' + score);
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;              
-        } else if (count === 2 && q3.choice[x] != q3.answer){
-            $("#combatText").text('You are incorrect! The correct answer is ' + q3.answer + '!');
-            $('#score').text('Guesses Correct: ' + score);
-            wrong++;
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;              
-        } else if (count === 3 && q4.choice[x] === q4.answer){
-            $("#combatText").text('You are correct!');
-            score++;
-            $('#score').text('Guesses Correct: ' + score);
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;              
-        } else if (count === 3 && q4.choice[x] != q4.answer) {
-            $("#combatText").text('You are incorrect! The correct answer is ' + q4.answer + '!');
-            $('#score').text('Guesses Correct: ' + score);
-            wrong++;
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;              
-        } else if (count === 4 && q5.choice[x] === q5.answer){
-            $("#combatText").text('You are correct!');
-            score++;
-            $('#score').text('Guesses Correct: ' + score);
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-            end = true;  
-        } else if (count === 4 && q5.choice[x] != q5.answer){
-            $("#combatText").text('You are incorrect! The correct answer is ' + q5.answer + '!');
-            $('#score').text('Guesses Correct: ' + score);
-            wrong++;
-            $('#wrong').text('Guesses Incorrect: ' + wrong);
-            count++;            
-            end = true;     
-        } 
+            count++;   
+            if (count === 6){
+                end = true;
+            }   
+        }
     }
     $('#timer').hide();
     $('.answer').hide();
@@ -219,7 +150,7 @@ $(document).ready(function() {
         $('#timer').text('30');
         $('#timer').hide();
         clearInterval(intervalId);
-        answerCheck(userPick);
+        answerCheck(userPick, count);
         didIWin();   
     });
 });
