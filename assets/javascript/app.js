@@ -118,7 +118,7 @@ $(document).ready(function() {
                 end = true;
             }    
         } else {
-            $("#combatText").text('You are incorrect! The correct answer is ' + q1.answer + '!');
+            $("#combatText").text('You are incorrect! The correct answer is ' + answerD + '!');           
             $('#score').text('Guesses Correct: ' + score);
             wrong++;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
