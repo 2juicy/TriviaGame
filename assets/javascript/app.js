@@ -105,6 +105,7 @@ $(document).ready(function() {
         $('#4A').text(y.choice[3]);
         $('#5A').text(y.choice[4]);
         answerD = y.answer;
+        $('#yourQuestion').text(y.question);
     }
     //function to check if answer is correct and posts if user is correct or not. Uses count# to check question number.
     var answerCheck = function(x, qNum){
