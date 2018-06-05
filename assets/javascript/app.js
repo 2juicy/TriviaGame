@@ -33,7 +33,7 @@ const q7 = {
     answer: 'Blue',
     choice: ['Blue', 'Red', 'Yellow', 'Green'],
 }
-//Add a new q# to add more questions. Adjust all count === values and for loop.
+//Add a new q# object and value into array to add more questions.
 const qList = [q1, q2, q3, q4 ,q5, q6, q7];
 var answerD = '';
 var count = 0;
@@ -83,7 +83,7 @@ $(document).ready(function() {
                 seconds = 30;
                 $('#timer').text('30');
                 $('#timer, .answer').hide();
-                if (count === 7){
+                if (count === qList.length){
                     end = true;
                 } else {
                     delay = setTimeout(function() {
@@ -102,7 +102,7 @@ $(document).ready(function() {
         counter();
         let y = qList[x];
         $('.answer, #yourQuestion').fadeIn(1000);
-        for (let i = 0; i < 6; i++){
+        for (let i = 0; i < 4; i++){
             $('#A' + i).text(y.choice[i]);
         }
         answerD = y.answer;
@@ -116,7 +116,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;  
-            if (count === 7){
+            if (count === qList.length){
                 end = true;
             }    
         } else {
@@ -125,7 +125,7 @@ $(document).ready(function() {
             wrong++;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;   
-            if (count === 7){
+            if (count === qList.length){
                 end = true;
             }   
         }
