@@ -82,7 +82,7 @@ $(document).ready(function() {
                 seconds = 30;
                 $('#timer').text('30');
                 $('#timer, .answer').hide();
-                if (count === 6){
+                if (count === 7){
                     end = true;
                 } else {
                     delay = setTimeout(function() {
