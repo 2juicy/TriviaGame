@@ -28,7 +28,12 @@ const q6 = {
     answer: 'Epic Games',
     choice: ['Bluehole', 'Daybreak', 'Naughty Dog', 'Epic Games'],
 }
-const qList = [q1, q2, q3, q4 ,q5, q6];
+const q7 = {
+    question: 'What color is the battle bus?',
+    answer: 'Blue',
+    choice: ['Blue', 'Red', 'Yellow', 'Green'],
+}
+const qList = [q1, q2, q3, q4 ,q5, q6, q7];
 var answerD = '';
 var count = 0;
 var score = 0;
@@ -54,11 +59,11 @@ $(document).ready(function() {
             end = false;
             delay = setTimeout(function() {
                 $('#start').slideDown();                  
-            }, 3000);
+            }, 2500);
         } else {
             delay = setTimeout(function() {
                 nextQuest(count);                  
-            }, 3000);
+            }, 2500);
         } 
     }
     //timer counter
@@ -82,7 +87,7 @@ $(document).ready(function() {
                 } else {
                     delay = setTimeout(function() {
                         nextQuest(count);                  
-                    }, 3000);
+                    }, 2500);
                 }
                 didIWin();                
             }
@@ -95,10 +100,9 @@ $(document).ready(function() {
         $('#timer').show();
         counter();
         let y = qList[x];
-        $('.answer').fadeIn(1000);
-        $('#yourQuestion').fadeIn(1000);
-        for (let i = 0; i < 5; i++){
-        $('#A' + i).text(y.choice[i]);
+        $('.answer, #yourQuestion').fadeIn(1000);
+        for (let i = 0; i < 6; i++){
+            $('#A' + i).text(y.choice[i]);
         }
         answerD = y.answer;
         $('#yourQuestion').text(y.question);
@@ -111,7 +115,7 @@ $(document).ready(function() {
             $('#score').text('Guesses Correct: ' + score);
             $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;  
-            if (count === 6){
+            if (count === 7){
                 end = true;
             }    
         } else {
@@ -120,7 +124,7 @@ $(document).ready(function() {
             wrong++;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
             count++;   
-            if (count === 6){
+            if (count === 7){
                 end = true;
             }   
         }
@@ -132,7 +136,7 @@ $(document).ready(function() {
         $('#start').hide();
         delay = setTimeout(function() {
             nextQuest(0);                    
-        }, 3000);
+        }, 2500);
     });
     //onclick for answer and validation of correct answer.
     $(".answer").click(function(){
