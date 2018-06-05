@@ -43,8 +43,7 @@ $(document).ready(function() {
     //win condition
     function didIWin(){
         if (end === true){
-            $('.answer').hide();
-            $('#yourQuestion').hide();
+            $('.answer, #yourQuestion').hide();
             $('#score').text('Game Over! Total Guesses Correct: ' + score);
             score = 0;
             $('#wrong').text('Guesses Incorrect: ' + wrong);
@@ -74,11 +73,10 @@ $(document).ready(function() {
                 count++;
                 wrong++;
                 $('#wrong').text('Guesses Incorrect: ' + wrong);
-                $('.answer').hide();
                 $('#yourQuestion').fadeOut();
                 seconds = 30;
                 $('#timer').text('30');
-                $('#timer').hide();
+                $('#timer, .answer').hide();
                 if (count === 6){
                     end = true;
                 } else {
@@ -99,11 +97,9 @@ $(document).ready(function() {
         let y = qList[x];
         $('.answer').fadeIn(1000);
         $('#yourQuestion').fadeIn(1000);
-        $('#1A').text(y.choice[0]);
-        $('#2A').text(y.choice[1]);
-        $('#3A').text(y.choice[2]);
-        $('#4A').text(y.choice[3]);
-        $('#5A').text(y.choice[4]);
+        for (let i = 0; i < 5; i++){
+        $('#A' + i).text(y.choice[i]);
+        }
         answerD = y.answer;
         $('#yourQuestion').text(y.question);
     }
@@ -129,14 +125,10 @@ $(document).ready(function() {
             }   
         }
     }
-    $('#timer').hide();
-    $('.answer').hide();
-    $('#yourQuestion').hide();
+    $('#timer, .answer, #yourQuestion').hide();
     //click event to start game
     $("#start").click(function(){
-        $("#combatText").text('');
-        $('#score').text('');
-        $('#wrong').text('');
+        $("#combatText, #score, #wrong").text('');
         $('#start').hide();
         delay = setTimeout(function() {
             nextQuest(0);                    
