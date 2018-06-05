@@ -33,6 +33,7 @@ const q7 = {
     answer: 'Blue',
     choice: ['Blue', 'Red', 'Yellow', 'Green'],
 }
+//Add a new q# to add more questions. Adjust all count === values and for loop.
 const qList = [q1, q2, q3, q4 ,q5, q6, q7];
 var answerD = '';
 var count = 0;
