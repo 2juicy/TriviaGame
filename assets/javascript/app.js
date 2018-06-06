@@ -1,38 +1,15 @@
-const q1 = {
-    question: 'What engine does Fortnite run on?',
-    answer: 'Unreal 4 Engine',
-    choice: ['Frostbite', 'Unity 3D', 'iD Tech 3 Engine', 'Unreal 4 Engine'],
-};
-const q2 = {
-    question: 'How many weapon tiers are there in Fortnite: Battle Royale?',
-    answer: '5',
-    choice: ['3','5','6','4'],
-};
-const q3 = {
-    question: 'How many shield points does a Mini-Shield Potion give you?',
-    answer: '25',
-    choice: ['10','15','20','25'],
-};
-const q4 = {
-    question: 'Which one of these areas was not included during the original launch of Fortnite in September of 2017?',
-    answer: 'Lucky Landing',
-    choice: ['Pleasant Park', 'Dusty Depot', 'Lucky Landing', 'Wailing Woods'],
-};
-const q5 = {
-    question: 'How many building options are there in Fortnite?',
-    answer: '4',
-    choice: ['6', '5', '4', '3'],
-};
-const q6 = {
-    question: 'Who is the developer behind Fortnite?',
-    answer: 'Epic Games',
-    choice: ['Bluehole', 'Daybreak', 'Naughty Dog', 'Epic Games'],
+function question(question, answer, choice) {
+  this.question = question;
+  this.answer = answer;
+  this.choice = choice;
 }
-const q7 = {
-    question: 'What color is the battle bus?',
-    answer: 'Blue',
-    choice: ['Blue', 'Red', 'Yellow', 'Green'],
-}
+const q1 = new question('What engine does Fortnite run on?', 'Unreal 4 Engine', ['Frostbite', 'Unity 3D', 'iD Tech 3 Engine', 'Unreal 4 Engine']);
+const q2 = new character('How many weapon tiers are there in Fortnite: Battle Royale?', '5', ['3','5','6','4']);
+const q3 = new character('How many shield points does a Mini-Shield Potion give you?', '25', ['10','15','20','25']);
+const q4 = new character('Which one of these areas was not included during the original launch of Fortnite in September of 2017?', 'Lucky Landing', ['Pleasant Park', 'Dusty Depot', 'Lucky Landing', 'Wailing Woods']);
+const q5 = new character('How many building options are there in Fortnite?', '4', ['6', '5', '4', '3']);
+const q6 = new character('Who is the developer behind Fortnite?', 'Epic Games', ['Bluehole', 'Daybreak', 'Naughty Dog', 'Epic Games']);
+const q7 = new character('What color is the battle bus?', 'Blue', ['Blue', 'Red', 'Yellow', 'Green']);
 //Add a new q# object and value into array to add more questions.
 const qList = [q1, q2, q3, q4 ,q5, q6, q7];
 var answerD = '';
