@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src='assets/javascript/app.js'></script>
-	<title>FORTNITE Trivia Game!</title>
-</head>
-<body>
-	<video autoplay loop muted poster id='background'>
-		<source src="assets/images/fortnitemov.mp4" type='video/mp4'>
-	</video>
-	<div class="container">	
-        <h1>FORTNITE Trivia!</h1>
-<hr>
-	<div class='center'>
-		<button id='start'>Start Game</button>
-    	<p><span id='yourQuestion'></span></p>
-	</div>
-	<div class="column">
-        <button class='answer' id='answer1' value='0'>a. <span class='as' id='A0'></span></button>
-		<button class='answer'id='answer2' value='1'>b. <span class='as' id='A1'></span></button>
-		<button class='answer' id='answer3' value='2'>c. <span class='as' id='A2'></span></button>
-		<button class='answer' id='answer4' value='3'>d. <span class='as' id='A3'></span></button>
-	</div>
-	</div>
-	<div class='center'>
-		<p><span id='combatText'></span></p>
-		<p><span id='score'></span></p>
-		<p><span id='wrong'></span></p>
-	</div>	
-	<div id="timer">30</div>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <title>FORTNITE Trivia Game!</title>
+  </head>
+  <body>
+    <video autoplay loop muted poster id="background">
+      <source src="assets/images/fortnitemov.mp4" type="video/mp4" />
+    </video>
+    <div class="container">
+      <h1>FORTNITE Trivia!</h1>
+      <hr />
+      <div class="center">
+        <button id="start">Start Game</button>
+        <p><span id="yourQuestion"></span></p>
+      </div>
+
+      <button class="answer" id="answer1" value="0">
+        a. <span class="as" id="A0"></span>
+      </button>
+      <button class="answer" id="answer2" value="1">
+        b. <span class="as" id="A1"></span>
+      </button>
+      <button class="answer" id="answer3" value="2">
+        c. <span class="as" id="A2"></span>
+      </button>
+      <button class="answer" id="answer4" value="3">
+        d. <span class="as" id="A3"></span>
+      </button>
+    </div>
+    <div class="center">
+      <p><span id="combatText"></span></p>
+      <p><span id="score"></span></p>
+      <p><span id="wrong"></span></p>
+    </div>
+    <div id="timer">30</div>
+  </body>
 </html>
